@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;1,500&family=Josefin+Sans:wght@700&display=swap"
+    rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="js/compressorr.css">
+  <title>compressor</title>
+</head>
+
+<body>
+  <!--<img src="img/adamd.jpg" alt=" ">-->
+  <!--Arka plan  resim-->
+
+  <nav class="navbar  navbar-expand-sm fixed-top p-0">
+    <div class="container-fluid" style="margin-left: 400px; margin-right: 200px;">
+      <a href=" " class="navbar-brand ">
+        <i class="mr-2 fas fa-camera-retro fa-3x mt-1 mr-4 "></i>
+        <p style="font-family: 'Pacifico', cursive; display: inline-block; font-size: 40px; "> BantPres</p>
+      </a>
+
+
+
+      <!--responsive yapınca navbar seçenekleri bir button içinde sıralanır -->
+
+      <button class=" navbar-toggler  text-center" style="background-color: black;" type="button" data-toggle="collapse"
+        data-target="#navbarCollapse">
+        <span class=" navbar-toggler-icon ">
+        </span>
+      </button>
+
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navmiddle navbar-nav  ml-auto">
+
+          <li class="nav-item">
+            <a href="#anasayfa" class="nav-link">Anasayfa</a>
+          </li>
+          <li class="nav-item  ">
+            <a href="#pres" class="nav-link"> Sıkıştırma</a>
+          </li>
+          <li class="nav-item">
+            <a href="#makaleler" class="nav-link">Makaleler</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="contact navbar-nav">
+        <a href="" class="navbar-brand">
+          <i class="fas fa-phone d-block" style="color: #816B91; font-size: 15px; margin-left: 80px;"></i>
+        </a>
+        <p class="font-weight-bold mr-5">
+          0(553)555 5555
+        </p>
+        <a href="https://github.com/BantPres" style="color: #000;" target="_blank">
+          <li class="nav-item ml-3">
+            <i class="fab fa-github"></i>
+          </li>
+        </a>
+        <a href="#" style="color: #000;">
+          <li class="nav-item ml-3">
+            <i class="fab fa-instagram"></i>
+          </li>
+        </a>
+        <a href="#" style="color: #000;">
+          <li class="nav-item ml-3">
+            <i class="fab fa-linkedin-in"></i>
+          </li>
+        </a>
+        <a href="#" style="color: #000;" target="_blank">
+          <li class="nav-item ml-3">
+            <i class="fab fa-facebook-f"></i>
+          </li>
+        </a>
+
+      </ul>
+
+    </div>
+  </nav>
+
+
+
+  <header id="anasayfa" style="margin-top: 98px;">
+    <div class="jumbotron">
+      <div class="container text-dark">
+        <div class="row">
+          <div class="col-md-4 px-0 mr-auto font-weight-bold">
+            <h1 class="font-italic pt-1" style="font-size: 50px; color: #000;">
+              BantPres ile görüntünüzü saniyeler içinde sıkıştırın!
+            </h1>
+          </div>
+          <div class="col-md-6">
+            <p class=" my-3 font-italic font-weight-bold" style="font-size: 20px; color: #000;">
+              Görüntü
+              kalitesinden ödün vermeden istediğiniz görüntü dosyası boyutunu kolayca elde
+              edebilirsiniz... <br>
+              Peki görüntülerimizi sıkıştırmak ne işimize yarar?
+            </p>
+            <a href="#whycompress">
+              <button class="btn btn-outline-dark lead mt-3 font-italic" type="button">
+
+                Okumaya devam et...
+              </button>
+            </a><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-10" style="margin-top: 40px;">
+
+          <div class="filebutton">
+            <h3 style="font-weight: 1000; font-size: 40px;">Fotoğraf Yükleme Alanı</h3>
+            <hr>
+            <div id="app" v-cloak>
+              <div class="card bg-light mb-4" @change="change" @dragover="dragover" @drop="drop">
+                <div class="card-body">
+                  <div class="p-5 text-center">Resmi buraya bırakın veya <label style="color: red; ">yükleyin... 
+                    <input
+                        type="file" class="sr-only" id="file" accept=".jpeg,.jpg,.png,.tiff" ref="input"></label></div>
+                </div>
+              </div>
+              <h3 style="font-weight: 700; font-size: 40px;">Sıkıştırma İşlemleri</h3>
+              <hr>
+              <div class="row">
+                <div class="col-lg-4 mb-4">
+                  <div class="card h-100">
+                    <h4 class="card-header">Düzenleme</h4>
+                    <div class="card-body">
+                      <fieldset class="form-group"></fieldset>
+                      <fieldset class="form-group"></fieldset>
+
+                      <div class="form-group row">
+                        <label for="inputQuality" class="col-5 col-form-label">Kalite</label>
+                        <div class="col-7">
+                          <select class="form-control" name="quality" id="inputQuality"
+                            v-model.number="options.quality">
+                            <option value="0">0</option>
+                            <option value="0.1">0.1</option>
+                            <option value="0.2">0.2</option>
+                            <option value="0.3">0.3</option>
+                            <option value="0.4">0.4</option>
+                            <option value="0.5">0.5</option>
+                            <option value="0.6">0.6</option>
+                            <option value="0.7">0.7</option>
+                            <option value="0.8">0.8</option>
+                            <option value="0.9">0.9</option>
+                            <option value="1">1</option>
+                            <option value="">NaN</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 mb-4">
+                  <div class="card mb-4">
+                    <h5 class="card-header d-flex align-items-center justify-content-between">
+                      <span class="font-weight-bold">Orijinal Resim </span>
+                      <a class="btn btn-blocks btn-outline-danger" :download="input.name" :href="inputURL"
+                        title="Download the compressed image" style="font-weight: bolder; padding: 10;">RESMİ İNDİR</a>
+                    </h5>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-4 d-flex mb-3">
+                          <div class="w-100 text-center" v-if="inputURL">
+                            <img class="mw-100" :src="inputURL" :alt="input.name">
+                          </div>
+                          <div v-else class="w-100 bg-light"></div>
+                        </div>
+                        <div class="col-md-8">
+                          <dl class="row">
+                            <dt class="col-5">Son düzenleme:</dt>
+                            <dd class="col-7">{{ input.lastModified || '--' }}</dd>
+                            <dt class="col-5">Son düzenleme tarihi:</dt>
+                            <dd class="col-7">{{ input.lastModifiedDate || '--' }}</dd>
+                            <dt class="col-5">İsim:</dt>
+                            <dd class="col-7">{{ input.name || '--' }}</dd>
+                            <dt class="col-5">Tip:</dt>
+                            <dd class="col-7">{{ input.type || '--' }}</dd>
+                            <dt class="col-5" style="color: red;">Boyut:</dt>
+                            <dd class="col-7" style="color: red;">{{ input.size | prettySize }}</dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <h5 class="card-header d-flex align-items-center justify-content-between">
+                      <span class="font-weight-bold">Sıkıştırılmış Resim </span>
+                      <a class="btn btn-blocks btn-outline-danger" :download="output.name" :href="outputURL"
+                        title="Download the compressed image" style="font-weight: bolder;">RESMİ İNDİR</a>
+                    </h5>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-4 d-flex mb-3">
+                          <div class="w-100 text-center" v-if="outputURL">
+                            <img class="mw-100" :src="outputURL" :alt="output.name">
+                          </div>
+                          <div v-else class="w-100 bg-light"></div>
+                        </div>
+                        <div class="col-md-8">
+                          <dl class="row" >
+                            <dt class="col-5">Son düzenleme:</dt>
+                            <dd class="col-7">{{ output.lastModified || '--' }}</dd>
+                            <dt class="col-5">Son düzenleme tarihi:</dt>
+                            <dd class="col-7">{{ output.lastModifiedDate || '--' }}</dd>
+                            <dt class="col-5">İsim:</dt>
+                            <dd class="col-7">{{ output.name || '--' }}</dd>
+                            <dt class="col-5">Tip:</dt>
+                            <dd class="col-7">{{ output.type || '--' }}</dd>
+                            <dt class="col-5" style="color: red;">Boyut:</dt>
+                            <dd class="col-7" style="color: red;">
+                              {{ output.size | prettySize }}
+                              <span v-if="output.size" style="color: red;">({{ ((1 - (output.size / input.size)) * 100).toFixed(2) }}%
+                                off)</span>
+                            </dd>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card" v-if="inputURL && outputURL">
+                <h4 class="card-header">Görüntüleri Karşılaştırma</h4>
+                <div class="card-body">
+                  <vue-compare-image v-if="inputURL && outputURL" :left-image="inputURL" :left-image-alt="input.name"
+                    left-label="Orjinal" :right-image="outputURL" :right-image-alt="output.name"
+                    right-label="Sıkıştırılmış"></vue-compare-image>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="makaleler" class="mainalt" style="margin-top: 100px; margin-right: 30px;">
+            <h3 style="font-weight: bolder;"> VERİ SIKIŞTIRMANIN AMACI VE ÖNEMİ</h3><br>
+            <blockquote>
+              <p style="text-indent: 30px; font-size: 21px;">
+                Bilgisayar teknolojisinin günlük
+                yaşantımızın bir parçası haline gelmesi sonucunda
+                sıkıştırma
+                yöntemleri ve formatlarının kulllanılması kaçınılmaz olmuştur.
+                Sürekli olarak kullandığımız ve çoğu zaman farkında olmadığımız veriler, aslında
+                sıkıştırılmış veri kümeleridir. Görüntü, ses ve video verileri sıkıştırmanın sıklıkla
+                kullanıldığı veri kaynaklarıdır.
+              </p>
+            </blockquote>
+
+            <blockquote>
+              <p style="text-indent: 30px; font-size: 21px;">
+              <blockquote>
+                <p style="text-indent: 30px; font-size: 21px;">
+                  Veri sıkıştırma, sabit disk alanı veya
+                  veri
+                  transferi bant genişliği gibi pahalı olan kaynakların tüketimini azaltmakta yardımcı
+                  olduğu için bir çok alanda kullanılmaktadır. Bir veri kümesinde hangi sıkıştırma
+                  yönteminin kullanılacağı verinin
+                  karakteristik özellikleri ile doğrudan ilişkilidir. Örneğin insan gözünün bir
+                  saniyede algıladığı çerçeve sayısının alt sınırı
+                  video görüntülerin sıkıştırılmasında, insan kulağının sesi algılayabilmesindeki
+                  frekans
+                  aralığı da ses verilerinin sıkıştırılmasında belirleyici faktörler olarak
+                  kullanılmaktadır.
+                </p>
+              </blockquote>
+              </p>
+            </blockquote>
+
+
+            <h3 style="font-weight: bolder;"> VERİ SIKIŞTIRMA ÇEŞİTLERİ</h3><br>
+
+            <h5 style="font-size: 21px; margin-bottom: 70px;">
+              1) Kayıpsız Sıkıştırma <br> 2) Kayıplı
+              Sıkıştırma
+            </h5>
+            <blockquote>
+
+              <h5 style="font-size: 21px; margin-bottom: 20px; font-weight: 700   ;">
+                1) Kayıpsız
+                Sıkıştırma
+              </h5>
+              <p style="text-indent: 30px; font-size: 21px;">
+                Kayıpsız sıkıştırma tekniklerinde, adından
+                da anlaşılacağı gibi veride herhangi
+                bir bilgi kaybı olmamaktadır. Kayıpsız sıkıştırmanın kullanıldığı en önemli alan, metin
+                verilerinin sıkıştırılmasıdır. Yeniden oluşturulan verinin orijinal veriyle birebir aynı
+                olması çok önemlidir. Olabilecek en küçük bir farklılık bu veri grubunda farklı
+                anlaşılmalara yol açacaktır. Sadece tek bir karakterin farklı bir şekilde yeniden
+                oluşturulması sonrasında, “Bugün kürek getir” ile “Bugün yürek getir” cümleleri
+                masumane bir örnek olarak verilebilir. Ancak bu masum örneğin bir bankanın
+                kayıtlarının yeniden oluşturulması aşamasında oluşabileceğini düşünürsek, ortaya
+                çıkabilecek farklı anlamlar veya rakamlar bir felaketle sonuçlanabilir.
+                Daha sonradan kullanabilecek olan ve önemli bilgiler içeren herhangi bir veri
+                çeşidinde bütünlüğün korunması çok önemlidir. Madencilik çalışmalarında kullanılan
+                multispektral görüntülerde, pikseller üzerindeki bilgiler önceden belirlenmiş spektral
+                aralıklara göre maden cinslerini göstermektedir. Kayıplı bir şıkıştırma sonrasında elde
+                edilen görüntü ile oluşturulacak sonuçlar yanlış yönlendirmelere ve maddi kayıplara yol
+                açabilecekken, benzer şekilde radyolojide kullanılan görüntülerden oluşturulacak
+                sonuçlar insan hayatına mal olabilecektir. Tarım, ormancılık, çevre kirliliği gibi
+                çevresel
+                görüntülemede kullanılan uydu görüntüleri farklı numerik betimlemeler elde edebilmek
+                ve kıyaslama yapabilmek amacıyla belirli bir süre sonra yeniden değerlendirmelere tabi
+                tutulabilmektedir. Eğer yeniden oluşturulan veri, orijinal veri ile birebir aynı olmaz
+                ise
+                farklı sonuçlar ortaya çıkacaktır. Tekrardan aynı koşulları oluşturacak şekilde yeni bir
+                görüntü elde etme de olanaklı değildir. Bu sebeple bu şekildeki veri kümelerinde
+                sıkıştırma aşamasında herhangi bir farklılık yaratacak bir yöntemin kullanılması tavsiye
+                edilmemektedir.
+                Orijinal veri ile birebir aynısı olmasını arzu ettiğimiz birçok uygulama
+                bulunmasına rağmen, daha fazla sıkıştırma yapıp daha rahat bir şekilde verilerle
+                uğraşmak istediğimiz uygulamalar da bulunmaktadır. Bu gibi durumlarda kayıplı
+                sıkıştırma tekniklerinden söz edebiliriz.
+                Kayıpsız veri sıkıştırma birçok uygulamada kullanılmaktadır. Bunlardan en
+                yaygın olanları ZIP dosya formatı ve Unix sistemlerindeki gzip dosya formatıdır.
+                Kayıplı sıkıştırma teknolojisi içerisinde de bir bileşen olarak kullanılabilmektedir.
+                TIFF
+                ve MNG gibi bazı görüntü formatları kayıplı veya kayıpsız metotları kullanabilirken,
+                PNG ve GIF gibi bazı görüntü formatları ise sadece kayıpsız sıkıştırmayı
+                kullanmaktadır.
+              </p>
+            </blockquote>
+
+            <blockquote>
+
+              <h5 style="font-size: 21px; margin-bottom: 20px; margin-top: 100px; font-weight: 700   ;">
+                2)
+                Kayıplı Sıkıştırma
+              </h5>
+              <p style="text-indent: 30px; font-size: 21px;">
+                Kayıplı sıkıştırma teknikleri bir kısım veri
+                kayıplarını göze almaktadır. Bu
+                yöntemde sıkıştırılmış verinin yeniden oluşturulmasında tam olarak orijinal verinin elde
+                edilemeyeceği bilinmektedir. İnsan gözünün veya diğer duyu organlarının algılamadığı
+                veya algılamada güçlük çektiği bilgilerin, orijinal veriden arındırılarak sıkıştırmanın
+                uygulanması, bu yöntemlerin en büyük avantajıdır. Ancak sıkıştırmanın fazla olduğu
+                durumlarda sıkıştırma hataları olarak adlandırılan görüntü bozulmaları dikkati
+                çekmektedir. Yeniden oluşturma sonrasında orijinal verinin elde edilemeyeceğinin ve
+                bir distorsiyon olacağının kabul edilmesi, kayıpsız sıkıştırma ile göremeyeceğimiz
+                yüksek sıkıştırma oranlarını elde etmemize olanak sağlar.
+                Bir çok uygulamada yeniden oluşturmadaki eksiklik bir problem teşkil
+                etmemektedir. Örneğin bir konuşmanın veya sesin iletilmesi veya depolanması
+                aşamasında, konuşmada geçen herbir örnek sesin gerçek değerinin tutulması zorunluluk
+                yaratmamaktadır. Yeniden oluşturulacak konuşmada beklenen kaliteye bağlı olarak, her
+                örneğe ilişkin değişken miktarda bilgi kayıpları göze alınabilmektedir. Yeniden
+                oluşturulan konuşmada telefondaki ses kalitesine benzer bir kalite bekliyorsak kayda
+                değer bilgi kayıpları göze alınabilir. Ama yeniden oluşturulan konuşmada müzik
+                CD’sindeki gibi bir kalite bekliyorsak çok daha az bilgi kaybı olacağı görülecektir.
+                Benzer şekilde bir video görüntü dizisinde yeniden oluşturulan video
+                görüntüsünün orjinal görüntü ile aynı olamayacağı bir gerçektir. Kullanıcının video
+                görüntüsünde beklediği çözünürlük nispetinde, bu veri çeşidinde kesinlikle kayıplı
+                sıkıştırma yöntemleri kullanılmaktadır.
+                Bir sıkıştırma planı tasarladığımızda elde edeceğimiz perfonmansı ölçebilme
+                yeteneğimizin bulunması gerekmektedir. Sıkıştırmanın birçok farklı uygulama alanı
+                olacağından, performans tanımlama ve ölçümü için farklı koşullar geliştirilmelidir.
+              </p>
+            </blockquote>
+
+
+            <h3 id="whycompress" style="font-weight: bolder;"> GÖRÜNTÜ SIKIŞTIRMA</h3><br>
+            <blockquote>
+              <p style="text-indent: 30px; font-size: 21px;">
+                Görüntü kullanımı ile ilgili olarak
+                kullanıcıların bütün ihtiyaçlarını karşılayacak
+                bir yöntem belirlemek hemen hemen imkansızdır. Yapılan bütün çalışmalar ihtiyaçları
+                en optimum seviyede karşılayacak yöntemlerin belirlenebilmesi üzerine dayanmaktadır.
+                Uygulamada kullanıcılar, kayıpsız sıkıştırmadaki gibi doğruluk ile hassasiyetten taviz
+                vermeyen ve görüntü kalitesi çok iyi olan, kayıplı sıkıştırmadaki gibi fazla sıkıştırma
+                oranı uygulanmış ve sabit diskler üzerinde fazla yer kaplamayan görüntüler ile
+                çalışmayı tercih ederler.
+              </p>
+            </blockquote>
+
+
+            <h3 style="font-weight: bolder;"> GÖRÜNTÜ FORMATLARI</h3><br>
+
+            <h5 style="font-size: 21px; margin-bottom: 70px;">
+              1) JPEG
+              <br> 2) JPEG200
+              <br> 3) TIFF (Tagged Image File Format)
+            </h5>
+
+
+            <blockquote>
+
+              <h5 id="jpeg" style="font-size: 21px; margin-bottom: 20px; margin-top: 100px; font-weight: 700   ;">
+                1)
+                JPEG
+              </h5>
+              <p style="text-indent: 30px; font-size: 21px;">
+                JPEG, Joint Photographic Experts Group
+                (Birleşik Fotoğraf Uzmanları Grubu) tarafından
+                standartlaştırılmış bir sayısal görüntü kodlama biçimidir. Bu biçim, 1994 yılında ISO
+                10918-1 adıyla standartlaşmıştır.
+                <br><br>
+                Fotoğrafik görüntülerin sıkıştırılmasında bilgisayar ortamında ve internette en
+                yaygın olarak kullanılan kayıplı bir sıkıştırma formatıdır. JPEG, sürekli tondaki
+                görüntüler için geliştirilen bir sıkıştırma yöntemidir. JPEG sıkıştırmanın ana hedefleri
+                arasında; yüksek sıkıştırma oranlarının elde edilebilmesi, bir çok parametre
+                kullanılabilmesi nedeniyle kullanıcıya istediği şekilde görüntüyü sunabilmesi, görüntü
+                özelliklerinden bağımsız olarak sürekli tondaki görüntüleri sıkıştırabilmesi, birçok
+                platformda kullanılabilen komplike fakat fazla karmaşık olmayan bir yöntem
+                kullanması sıralanabilir (Wallace 1992, Salomon 2008). Uygulanan sıkıştırmanın
+                derecesi, depolama için kullanılan disk alanı ve görüntü kalitesi ile doğrudan
+                orantılıdır.
+                JPEG sıkıştırma algoritması, görüntünün rengi ve tonlaması arasında yumuşak geçişler
+                yapabilmektedir. Bununla birlikte keskin ayrımlar olan görüntülerde bu formatın
+                kullanılması uygun değildir. Sıkıştırma sonrasında bu şekildeki görüntülerde, komşu
+                piksellerdeki keskin kontrast farkları dikkate değer doku hatalarına sebebiyet
+                vermektedir. Keskin kontrast farklarının bulunduğu görüntülerin kayıpsız sıkıştırma
+                yöntemlerinden biriyle sıkıştırılması daha uygun olacaktır.
+                Editlenecek görüntülerin JPEG ile sıkıştırılması uygun değildir. Görüntünün her
+                defasında kodlanması ve yeniden çözülmesi görüntü kalitesinde kayıplara sebebiyet
+                vermektedir. Genellikle kayıplı sıkıştırılmış olan bu formatın, kayıpsız olan bazı
+                alternatifleri de bulunmaktadır. Ancak bu kayıpsız seçeneklerin çoğu programlar
+                tarafından desteklenmemektedir. Sıkıştırma aşamasında görüntü 8x8 piksellik alt
+                bloklara ayrılmakta ve her blokta ayrık kosinüs dönüşümü uygulanmaktadır. Daha sonra
+                bu bloklar nicelemeye tabi tutulmaktadır. Niceleme sonrasında ardışık tekrarlı kodlama
+                42
+                ile benzer frekanslarda gruplar oluşturulur ve oluşturulan bu veri Huffman kodlama ile
+                kayıpsız olarak sıkıştırılmaktadır.
+              </p>
+            </blockquote>
+
+
+            <blockquote>
+
+              <h5 style="font-size: 21px; margin-bottom: 20px; margin-top: 100px; font-weight: 700   ;">
+                2)
+                JPEG2000
+              </h5>
+              <p style="text-indent: 30px; font-size: 21px;">
+                Birleşik Fotoğrafik Uzmanlar Grubu komiitesi
+                tarafından 2000 yılında ayrık
+                cosinüs dönüşüm tabanlı JPEG standardının, yeni tasarlanan wavelet tabanlı yöntem ile
+                değiştirilmesi sonrasında ortaya konulan bir kodlama sistemi ve görüntü sıkıştırma
+                standardıdır. JPEG2000 çalışma grubunun hedefi; farklı tipteki (iki düzeyli, gri
+                tonlamalı, renkli, çok bileşenli, hiper bileşenli), farklı karakteristiklere (doğal,
+                bilimsel,
+                uzaktan algılanmış, metin içeren, vb.) sahip, farklı görüntülenme modellerine
+                (müşteri/sunucu, gerçek zamanlı iletim, arşiv amaçlı, sınırlı bant genişliğine sahip,
+                vb.)
+                olanak sağlayan, tercihen tek ve entegre bir görüntü standardını ortaya koymaktır (Gray
+                2002).
+                JPEG ile karşılaştırıldığında en belirgin avantajı kod akışındaki esnekliktir.
+
+                JPEG2000 ile sıkıştırılan bir görüntüdeki kod akışı ölçeklenerek farklı yollar ile
+                görüntü yeniden oluşturulabilir. Yani herhangi bir noktada kod akışının kesilmesiyle
+                geriye kalan bölüm için daha farklı bir çözünürlükte görüntü elde edebilme imkanı
+                bulunmaktadır. Kod akışının değişik yollarla sıralanabilmesi uygulamalarda belirgin bir
+                şekilde performans artışı sağlamaktadır. Bununla birlikte bu esneklik doğal olarak
+                kodlayıcıda ile çözücüde karmaşıklığı ve hesap yükünü beraberinde getirmektedir.
+                Diğer bir farklılık ise görsel bozukluklarda ortaya çıkmaktadır. JPEG2000 görüntü
+                kenarlarında dairesel bulanıklık oluşturmakta, JPEG görüntülerinde ise 8x8’lik
+                bloklardan oluşması nedeniyle hem dairesel hemde bloklama bozuklukları
+                oluşmaktadır.
+                JPEG2000’in mevcut birçok özelliğinden bazıları Marcellin ve ark. (2000)
+                tarafından sıralanmıştır:
+                - Düşük bit oranlarında sıkıştırma performansı,
+                - Kalite, çözünürlük, bileşen veya uzaysal konumluluk ile kademeli iletim,
+                - Kayıplı veya kayıpsız sıkıştırma,
+                - Bit sıralarına rasgele erişim,
+                - Kaydırma, büyültme ve küçültme (sıkıştırılmış veri içerisinden sadece ilgili
+                alanın çözülmesi),
+                - Rotasyon veya kırpma gibi sıkıştırılmış çevre işlemleri,
+                - Sadece ilgili alanın kodlanabilmesi,
+                - Sınırlı hafıza uygulamaları.
+                JPEG2000 sadece sıkıştırma performansını arttırmakla kalmamış,
+                ölçeklenebilirlik ve editlenebilirlik gibi özellikleri de ilave etmiştir. JPEG2000 40
+                sıkıştırma yönteminde, çok düşük ve çok yüksek sıkıştırma oranları elde
+                edilebilmektedir.
+                JPEG2000 sıkıştırılmış yapıdayken, doğrudan kompleks meta veriyi
+                kullanabilmektedir. Bu özellik de, kompleks bir ürünü basit bir şekilde gösterebilmesi
+                açısından avantaj sağlamaktadır.
+              </p>
+            </blockquote>
+
+
+            <blockquote>
+
+              <h5 id="tiff" style="font-size: 21px; margin-bottom: 20px; margin-top: 100px; font-weight: 700;">
+                3)
+                TIFF (Tagged Image
+                File Format)
+              </h5>
+              <p style="text-indent: 30px; font-size: 21px;">
+                Grafik sanatçıları, basım endüstrisi,
+                fotoğrafçılar ve Macintosh kullanıcıları
+                tarafından tercih edilen görüntü kaydetme dosya formatıdır. İlk olarak Aldus firması
+                tarafından 1986 yılında ortaya çıkartılan bu formatın telif hakları, 2009 yılından
+                itibaren
+                Aldus firmasını bünyesine katan Adobe Systems firmasının kontrolüne geçmiştir.
+                Masaüstü tarayıcı sağlayıcı her şirketin kendine özgü format kullanmasını
+                önlemek amacıyla, 1980 ortalarında ortak bir taranmış görüntü dosya formatı elde etme
+                çabaları sonucu oluşturulmuştur. Başlangıçta her tarayıcının rahatlıkla
+                destekleyebilmesini sağlamak amacıyla her pikselde sadece iki olası değerin
+                saklanabildiği, ikili sistemde görüntü formatı olmuştur. Tarayıcılar geliştikçe ve
+                bilgisayarlardaki depolama alanları arttıkça TIFF formatı önce gri tonlamalı
+                görüntülerde sonrasında da renkli görüntülerde kullanılmaya başlanmıştır. Günümüzde
+                JPEG ve PNG ile birlikte yüksek renk derinliğine sahip popüler bir formattır.
+                İki deneme sonrasında ilk olarak 1986 yılında sürüm 3.0 olarak çıkmış, küçük
+                değişiklikler sonrası 1987'de sürüm 4.0 olmuştur. 1988 yılında renkli görüntü ve LZW
+                sıkıştırma desteği eklenerek 5.0 sürümü oluşturulmuş, halen 6.0 sürümü
+                kullanılmaktadır (www.partners.adobe.com).
+                TIFF; boyut, tanımlama, uygulanan sıkıştırma gibi görüntü geometrisini
+                tanımlayan başlık etiketlerinin içerildiği, görüntüyü ve verisini tek bir dosya
+                içerisinde
+                saklayabilen esnek ve uyarlanabilir bir dosya formatıdır. TIFF dosyası, örneğin kayıplı
+                sıkıştırılmış JPEG ve kayıpsız sıkıştırılmış PackBits görüntülerini içeren bir taşıyıcı
+                olabilmektedir. Görüntülerin kayıpsız olarak sıkıştırılarak saklanabilmesi yeteneği,
+                TIFF dosya formatının arşivlenme amaçlarında kullanılabilmesine olanak
+                sağlamaktadır. Dosya boyutunu düşürmek amacıyla kayıpsız veri sıkıştırma tekniği olan 38
+                LZW sıkıştırma yönteminin kullanılması önerilmektedir. LZW tekniğinin kullanımı
+                patentli olduğu için, 2004 yılına kadar sınırlı bir şekilde yapılabilmiştir. Şu anda
+                patent
+                problemi bulunmamaktadır.
+                TIFF formatının geliştirilmesi, uyumluluk problemlerini de beraberinde
+                getirmiştir. Her TIFF okuyucusunun, JPEG, LZW sıkıştırma veya katmanların
+                içerilmediği temel seviye TIFF görüntüsünü okuması gerekmektedir. Temel seviye
+                TIFF görüntüsünde ise ardışık tektrarlı kodlamanın bir çeşidi olan PackBits sıkıştırma
+                içerilmektedir. Birçok okuyucu temel seviye görüntü ile birlikte diğer etiketleri de
+                okuyabilmektedir. Sonuç olarak TIFF formatı en küçük ortak bölen görüntü formatı
+                olmuştur ve çoğu TIFF görüntüsü, sıkıştırılmamış 24-bit RGB veya 32-bit CMYK
+                görüntüsünden oluşturulmaktadır.
+                TIFF 6.0 sürümüne örnek format etiketinin eklenmesiye birlikte, kayan noktalı
+                görüntülerin ve her kanalda 8 bitten fazla veri içerilen tamsayılı görüntülerin
+                içerildiği
+                gelişmiş piksel veri tiplerinin ele alınması olanaklı hale gelmiştir. Bu etiket
+                sayesinde
+                büyük hassasiyet gerektiren bilimsel görüntü işleme olanaklı hale gelmiştir. Bununla
+                birlikte çoklu sayfa görüntülerinin kuralını oluşturan görüntü dizilerinin tek bir
+                dosyada
+                saklanması ve JPEG sıkıştırma etiketinin tutulması da bu sürümde mümkündür.
+              </p>
+            </blockquote>
+
+
+          </div>
+
+        </div>
+        <div class="col-1 " style="margin-top: 120px;">
+          <div class="card mb-5" style="width: 400px;">
+            <div class="card-body">
+              <img src="js/img/jpeg.jpg" alt="JPEG" style="width: 360px;">
+
+              <h4 class="card-title mt-3">
+                Jpeg Nedir?
+              </h4>
+              <p class="card-text">
+                JPEG, Joint Photographic Experts Group (Birleşik Fotoğraf Uzmanları Grubu) tarafından
+                standartlaştırılmış bir sayısal görüntü kodlama biçimidir. Bu biçim, 1994 yılında ISO
+                10918-1 adıyla standartlaşmıştır.
+              </p>
+              <a href="#jpeg">
+                <button class="btn btn-outline-dark font-weight-bold" type="button">
+                  Devamını oku...
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="card mb-5" style="width: 400px;">
+            <div class="card-body">
+              <img src="js/img/tiff.jpg" alt="JPEG" style="width: 360px;">
+
+              <h4 class="card-title mt-3">
+                TİFF Nedir?
+              </h4>
+              <p class="card-text">
+                Grafik sanatçıları, basım endüstrisi,
+                fotoğrafçılar ve Macintosh kullanıcıları
+                tarafından tercih edilen görüntü kaydetme dosya formatıdır.
+              </p>
+              <a href="#tiff">
+                <button class="btn btn-outline-dark font-weight-bold" type="button">
+                  Devamını oku...
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="card mb-5" style="width: 400px;">
+            <div class="card-body">
+              <img src="js/img/png-icon (1).png" alt="JPEG" style="width: 340px;">
+
+              <h4 class="card-title mt-3">
+                PNG Nedir?
+              </h4>
+              <p class="card-text">
+                JPEG, Joint Photographic Experts Group (Birleşik Fotoğraf Uzmanları Grubu) tarafından
+                standartlaştırılmış bir sayısal görüntü kodlama biçimidir. Bu biçim, 1994 yılında ISO
+                10918-1 adıyla standartlaşmıştır.
+              </p>
+              <button class="btn btn-outline-dark font-weight-bold" type="button">Devamını oku...</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <a href="#anasayfa  "> <button class="btn btn-outline-dark   " style="border-radius: 50%; 
+    position: fixed;
+    bottom: 130px;
+    left: 1755px; "><i class="fas fa-arrow-up fa-2x" style="padding: 10px;"></i></button></a>
+
+  <footer class="mt-5 py-4 text-center text-light" style="background-color: #000;">
+
+    Copyright © My Website 2021 | Tüm hakları saklıdır. <br> By <a href="https://github.com/BantPres"
+      style="color: #fff;" target="_blank" class="font-weight-bold"> BantPres</a>
+
+    <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2/dist/vue.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue-compare-image@0.2/dist/vueCompareImage.umd.min.js"
+      crossorigin="anonymous"></script>
+    <script src="https://fengyuanchen.github.io/shared/google-analytics.js" crossorigin="anonymous"></script>
+    <script src="js/compressor.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

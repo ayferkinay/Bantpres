@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff7f7;
+    /*   background-image: url(img/kadın.jpg);*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 600px auto;
+    background-position-y: bottom;
+    background-position-x: right;
+}
+
+/* *****************************************        NAVBAR          ************************************************/
+
+nav {
+    border-bottom: 1.5px solid #000;
+    background-color: #fff7f7;
+    opacity: .9;
+}
+
+.navbar .navbar-brand {
+    color: black;
+    transition: all .4s ease;
+}
+
+.navbar .navbar-brand:hover {
+    color: red;
+}
+
+.navbar .nav-link {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-right: 30px;
+    transition: all .4s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #111111;
+    font-size: 22px;
+}
+
+.navbar .navbar-nav {
+    flex-direction: row;
+}
+
+nav .contact .fab {
+    font-size: 22px;
+    transition: all .3s ease;
+}
+
+nav .contact .fab:hover {
+    font-size: 26px;
+    color:  #ff0000;
+}
+
+/* *****************************************        HEADER        ************************************************/
+
+header .jumbotron {
+    background-image: url(img/blurry-mountain-trimmed.jpg);
+    background-size: 2000px auto;
+    background-repeat: no-repeat;
+}
+
+header .jumbotron button {
+    padding: 10px;
+    font-weight: 600;
+    transition: all .6s ease;
+}
+
+header .jumbotron button:hover {
+    color: rgb(255, 255, 255);
+    background-color: #000;
+    font-weight: 800px;
+}
+
+/* *****************************************        MAİN        ************************************************/
+
+main .downloadbox {
+    width: 900px;
+    height: 900px;
+    background-color: rgb(255, 255, 255);
+    border-top: 5px dotted black;
+    border-bottom: 5px dotted black;
+    margin-bottom: 100px;
+    border-radius: 25%;
+}
+ main .filebutton{
+   
+    font-family: 'Source Sans Pro', sans-serif;
+        font-size: 20px;
+    font-weight: bolder;
+    transition: all .8s ease ;
+}
+
+
+.mainalt {
+    font-family: 'Nunito', sans-serif;
+}
+
+.mainalt h3 {
+    margin-top: 100px;
+}
+
+/* *****************************************        FOOTER        ************************************************/
+
+footer {
+    background-color: rgb(131, 131, 131);
+}
